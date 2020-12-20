@@ -1,28 +1,76 @@
-import React, { memo } from 'react';
-import {Chart} from '../components/charts/index';
+import React, { memo, useState } from 'react';
+import { Chart } from '../components/charts/index';
 import Containers from '../components/containers';
 import Header from '../components/header';
 import Layaut from '../components/layaut';
 import LeftBar from '../components/leftbar';
+import { Sortable } from '@progress/kendo-react-sortable';
+import PageFour from './sortable/PageFour';
+import PageTheree from './sortable/PageTheree';
+import PageTwo from './sortable/PageTwo';
+import PageOne from './sortable/PageOne';
 
 const Dashboard = memo(() => {
+    const [page, setPage] = useState([
+        { id: 1, component: <PageOne/> },
+        { id: 2, component: <PageTwo/> },
+        { id: 3, component: <PageTheree/> },
+        { id: 4, component: <PageFour/> },
+    ]);
+
+    const onDragOver = (event) => {
+        setPage(event.newState)
+    }
+
+    const onNavigate = (event) => {
+        setPage(event.newState)
+    }
+
+    const getBaseItemStyle = (isActive) => ({
+        width: "50%",
+        display: "inline-block",
+        background: isActive ? '#0bcaff' : '',
+        borderColor: isActive ? '#93d1e2' : '#fff'
+    });
+
+    const SortableItemUI = (props) => {
+        const { isDisabled, isActive, style, attributes, dataItem, forwardRef } = props;
+        const classNames = [''];
+
+        if (isDisabled) {
+            classNames.push('k-state-disabled');
+        }
+
+        return (
+            <div
+                ref={forwardRef}
+                {...attributes}
+                style={{
+                    ...getBaseItemStyle(isActive),
+                    ...style
+                }}
+                className={classNames.join(' ')}
+            >
+                {dataItem.component}
+            </div>
+        );
+    };
+
     return (
         <>
-            <Header title={"Dashboard"}/>
-            <LeftBar/>
+            <Header title={"Dashboard"} />
+            <LeftBar />
             <Containers>
-                <Layaut title="Top Charts">
-                    <Chart.TopCharts/>
-                </Layaut>
-                <Layaut title="Traced Apps">
-                    <Chart.TrackedApps/>
-                </Layaut>
-                <Layaut title="App Suggestions">
-                    <Chart.AppSuggestions/>
-                </Layaut>
-                <Layaut title="Rank History">
-                    <Chart.RankHistory/>
-                </Layaut>
+                <Sortable
+                    idField={'id'}
+                    disabledField={'disabled'}
+                    data={page}
+
+                    itemUI={SortableItemUI}
+
+                    onDragOver={onDragOver}
+                    onNavigate={onNavigate}
+                />
             </Containers>
         </>
     );

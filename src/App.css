@@ -121,9 +121,9 @@ background: rgba(207, 207, 207, 0.4);
 }
 
 .app-container .layout {
-  width: 50%;
+  width: 100%;
   overflow: hidden auto;
-  display: inline-flex;
+  display: flex;
 }
 
 .layout .layout-container {
