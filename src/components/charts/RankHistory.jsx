@@ -1,5 +1,5 @@
 import React from 'react';
-import Chart from "react-apexcharts";
+
 import { topChart as data } from "../../data/topChart"
 
 class RankHistory extends React.Component {
@@ -7,15 +7,7 @@ class RankHistory extends React.Component {
         super(props);
 
         this.state = {
-            series: data.map((val, i) => {
-                return {
-                    name: val.apps[i].name,
-                    data: val.apps.filter((item, i) => {
-                        if (i <= 6)
-                            return item.rank
-                    }).map(item => item.rank)
-                };
-            }),
+            series: "",
             options: {
                 chart: {
                     height: 350,
@@ -29,7 +21,7 @@ class RankHistory extends React.Component {
                 },
                 xaxis: {
                     type: "string",
-                    categories: data.map((val) => [val.date])
+                    categories: []
                 },
                 tooltip: {
                     x: {
@@ -41,10 +33,15 @@ class RankHistory extends React.Component {
 
         };
     }
+
+    componentDidMount() {
+        console.log(data.map((val) => [val.date]));
+        console.log(this.state.series)
+    }
     render() {
         return (
             <div className="chart">
-                <Chart options={this.state.options} series={this.state.series} type="area" />
+                
             </div>
         );
     }
