@@ -29,8 +29,9 @@ const Dashboard = memo(() => {
     const getBaseItemStyle = (isActive) => ({
         width: "50%",
         display: "inline-block",
-        background: isActive ? '#0bcaff' : '',
-        borderColor: isActive ? '#93d1e2' : '#fff'
+        background: isActive ? '#ddd' : '',
+        border: isActive ? 'none' : 'none',
+        outline: "0"
     });
 
     const SortableItemUI = (props) => {
