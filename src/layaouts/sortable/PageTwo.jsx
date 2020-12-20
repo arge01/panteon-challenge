@@ -4,9 +4,11 @@ import { Chart } from '../../components/charts/index';
 
 const PageTwo = memo(() => {
     return (
-        <Layaut title="Traced Apps">
-            <Chart.TrackedApps />
-        </Layaut>
+        <>
+            <Layaut title="Traced Apps">
+                <Chart.TrackedApps />
+            </Layaut>
+        </>
     )
 });
 

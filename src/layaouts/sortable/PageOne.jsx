@@ -4,9 +4,11 @@ import { Chart } from '../../components/charts/index';
 
 const PageOne = memo(() => {
     return (
-        <Layaut title="Top Charts">
-            <Chart.TopCharts />
-        </Layaut>
+        <>
+            <Layaut title="Top Charts">
+                <Chart.TopCharts />
+            </Layaut>
+        </>
     )
 });
 

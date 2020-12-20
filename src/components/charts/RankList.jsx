@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { memo } from 'react';
 import bower from '../../images/appIcons/bowMaster-multiplayerGameIcon.jpg'
 import driveClimberIcon from '../../images/appIcons/driveClimberIcon.jpg'
 import facebookMessenger from '../../images/appIcons/facebookMessengerIcon.jpg'
 import ReactStars from "react-rating-stars-component";
 
-const RankList = ({data}) => {
+const RankList = memo(({data}) => {
     const srcVal = (val) => {
         switch (val) {
             case "driveClimberIcon.jpg":
@@ -29,19 +29,14 @@ const RankList = ({data}) => {
                                     <div className="val-publish">
                                         {val.publisher}
                                         <div className="point">
-                                            <ReactStars 
+                                            <ReactStars
                                                 size={15}
                                                 count={5}
                                                 color={"black"}
                                                 activeColor={"yellow"}
                                                 value={val.rating}
-                                                a11y={true}
-                                                isHalf={true}
-                                                emptyIcon={<i className="far fa-star" />}
-                                                halfIcon={<i className="fa fa-star-half-alt" />}
-                                                filledIcon={<i className="fa fa-star" />}
                                                 onChange={(newValue) => {
-                                                    console.log(`Example 2: new value is ${newValue}`)}
+                                                    console.log(`New val ${newValue}`)}
                                                 } />
                                             <span style={{fontSize: "7pt"}}>({val.rank})</span>
                                         </div>
@@ -56,6 +51,6 @@ const RankList = ({data}) => {
         })} 
         </>
     );
-}
+})
 
 export default RankList;

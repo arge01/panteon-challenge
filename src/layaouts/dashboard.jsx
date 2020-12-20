@@ -1,8 +1,6 @@
-import React, { memo, useState } from 'react';
-import { Chart } from '../components/charts/index';
+import React, { memo, useEffect, useState } from 'react';
 import Containers from '../components/containers';
 import Header from '../components/header';
-import Layaut from '../components/layaut';
 import LeftBar from '../components/leftbar';
 import { Sortable } from '@progress/kendo-react-sortable';
 import PageFour from './sortable/PageFour';

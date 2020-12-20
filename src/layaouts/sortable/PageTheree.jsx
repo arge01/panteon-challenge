@@ -4,9 +4,11 @@ import { Chart } from '../../components/charts/index';
 
 const PageTheree = memo(() => {
     return (
-        <Layaut title="App Suggestions">
-            <Chart.AppSuggestions />
-        </Layaut>
+        <>
+            <Layaut title="App Suggestions">
+                <Chart.AppSuggestions />
+            </Layaut>
+        </>
     )
 });
 
