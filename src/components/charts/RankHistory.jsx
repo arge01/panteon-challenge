@@ -44,7 +44,7 @@ class RankHistory extends React.Component {
     render() {
         return (
             <div className="chart">
-                <Chart options={this.state.options} series={this.state.series} type="area" />
+                {/*<Chart options={this.state.options} series={this.state.series} type="area" />*/}
             </div>
         );
     }

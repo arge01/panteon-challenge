@@ -4,9 +4,9 @@ import RankList from './RankList';
 
 const TopCharts = memo(() => {
     return (
-        <>{topChart.map(val => {
+        <>{topChart.map((val, key) => {
             return (
-                <div className="rank-list">
+                <div key={key} className="rank-list">
                     <RankList data={val.apps} />
                 </div>
             )
