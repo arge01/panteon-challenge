@@ -2,7 +2,7 @@ import React, { memo } from 'react';
 import bower from '../../images/appIcons/bowMaster-multiplayerGameIcon.jpg'
 import driveClimberIcon from '../../images/appIcons/driveClimberIcon.jpg'
 import facebookMessenger from '../../images/appIcons/facebookMessengerIcon.jpg'
-
+import ReactStars from "react-rating-stars-component";
 
 const RankList = memo(({data}) => {
     const srcVal = (val) => {
@@ -16,7 +16,8 @@ const RankList = memo(({data}) => {
         }
     }
     return (
-        <>{data.map((val, key)=>{
+        <>{data.length > 0 &&
+            data.map((val, key)=>{
             return (
                 <section key={key} className="list-order">
                     <div className="list">
@@ -29,7 +30,15 @@ const RankList = memo(({data}) => {
                                     <div className="val-publish">
                                         {val.publisher}
                                         <div className="point">
-                                            
+                                            <ReactStars
+                                                size={15}
+                                                count={5}
+                                                color={"black"}
+                                                activeColor={"yellow"}
+                                                value={val.rating}
+                                                onChange={(newValue) => {
+                                                    console.log(`New val ${newValue}`)}
+                                                } />
                                             <span style={{fontSize: "7pt"}}>({val.rank})</span>
                                         </div>
                                     </div>
