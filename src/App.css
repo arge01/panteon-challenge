@@ -1,38 +1,259 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+#root {
   min-height: 100vh;
+  min-width: 100%;
+  overflow: hidden;
+  position: relative;
+  background: #eff3f9;
+}
+
+/* Let's get this party started */
+::-webkit-scrollbar {
+  width: 3px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(197, 197, 197, 0.3); 
+  -webkit-border-radius: 0;
+  border-radius: 0;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  background: rgba(180, 180, 180, 0.8); 
+  -webkit-box-shadow: inset 0 0 6px rgba(194, 194, 194, 0.5); 
+}
+::-webkit-scrollbar-thumb:window-inactive {
+background: rgba(207, 207, 207, 0.4); 
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  background: #fff;
+  width: 100%;
+  height: 95px;
   display: flex;
-  flex-direction: column;
   align-items: center;
+}
+
+.header .title {
+  margin: 0;
+  margin-left: calc(120px + 50px);
+}
+
+.left-bar {
+  width: 120px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  background: #0bcaff;
+  z-index: 30;
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-direction: column;
+  flex-wrap: nowrap;
 }
 
-.App-link {
-  color: #61dafb;
+.left-bar .logo {
+  flex: 0 0 auto;
+  padding: 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.left-bar .logo img {
+  width: 100%;
+  max-height: 120px;
+}
+
+.left-bar .menu {
+  flex: 1 1 100%;
+  list-style-type: none;
+  margin-top: 120px;
+  padding: 0;
+}
+
+.left-bar .menu li {
+  display: list-item;
+  width: 100%;
+}
+
+.left-bar .menu li a {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 10px;
+  padding-right: 30px;
+  color: #fff;
+  background: rgb(255, 255, 255);
+  background: linear-gradient(90deg, rgba(11, 202, 255, 1) 0%, rgba(255, 255, 255, .7) 100%);
+  position: relative;
+}
+
+.left-bar .menu li a:after {
+  content: ">";
+  font-size: 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 5px;
+  margin-left: 3px;
+  right: 2px;
+}
+
+.left-bar .menu li a img {
+  max-height: 40px;
+}
+
+.app-container {
+  position: relative;
+  z-index: 1;
+  margin-left: 120px;
+  padding: 15px;
+  padding-top: 110px;
+  display: block;
+  min-height: calc(100vh - 110px - 15px);
+}
+
+.app-container .layout {
+  width: 50%;
+  overflow: hidden auto;
+  display: inline-flex;
+}
+
+.layout .layout-container {
+  border-radius: 10px;
+  display: flex;
+  flex: 1;
+  padding: 15px;
+}
+
+.layout .layout-container .inline {
+  background: #fff;
+  width: 100%;
+  display: flex;
+  border-radius: 10px;
+  padding: 15px;
+  flex-direction: column;
+  height: 435px;
+  overflow: hidden auto;
+}
+
+.layout-container .inline .title {
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 15px;
+}
+
+.rank-list {}
+
+.rank-list .list-order {}
+
+.rank-list .list-order .list {
+  display: flex;
+  height: 90px;
+  align-items: center;
+  font-size: 10pt;
+}
+
+.rank-list .list-order .list .order {
+  display: flex;
+  margin-right: 10px;
+}
+
+.rank-list .list-order .list .constant {
+  flex: 1 1;
+  height: 90px;
+  align-items: center;
+  display: flex;
+}
+
+.rank-list .list-order .list .constant img {
+  max-height: 50px;
+  border: none
+}
+
+.rank-list .list-order .list .constant .constant-container {
+  flex: 1 1;
+  height: 90px;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  padding: 10px
+}
+
+.rank-list .list-order .list .rank {
+  min-width: 50px;
+  display: flex;
+  justify-content: center;
+  border-left: 1px solid #ddd;
+  height: 45px;
+  align-items: center;
+}
+
+.val-publish {
+  display: flex;
+}
+
+.val-publish>* {
+  margin-left: 10px;
+}
+
+.point {
+  display: flex;
+  align-items: center;
+}
+
+.point>* {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.rank.up-rank {
+  color: green;
+}
+
+.rank.down-rank {
+  color: red;
+}
+
+.rank {
+  font-size: 12pt;
+  font-weight: bold;
+}
+
+.rank:after {
+  display: inline;
+  margin: 0 2px;
+  font-size: 10pt;
+}
+
+.rank:before {
+  display: inline;
+  margin: 0 2px;
+  font-size: 10pt;
+}
+
+.rank.up-rank:after {
+  content: "▲";
+}
+
+.rank.down-rank:after {
+  content: "▼";
+}
+
+.rank.up-rank:before {
+  content: "+";
+}
+
+.rank.down-rank:before {
+  content: "-";
+}
+
+.rank-list .list-order .list .constant .constant-container > .c-title {
+  margin-bottom: 10px
 }
