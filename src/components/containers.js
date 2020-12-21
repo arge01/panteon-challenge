@@ -2,7 +2,7 @@ import React, { memo } from 'react';
 
 const Containers = memo(({children}) => {
     return (
-        <div className="app-container">
+        <div id="app-container" className="app-container">
             {children}
         </div>
     );
