@@ -159,7 +159,8 @@
   height: 90px;
   align-items: center;
   font-size: 10pt;
-  border-bottom: 1px solid #ddd
+  border-bottom: 1px solid #ddd;
+  position: relative;
 }
 
 .rank-list .list-order .list .order {
@@ -286,5 +287,40 @@
     min-height: calc(100vh - 110px - 15px);
     margin: 0;
     padding-bottom: 180px;
+  }
+
+  .rank-list .list-order .list .constant,
+  .rank-list .list-order .list .constant .constant-container,
+  .rank-list .list-order .list {
+    height: auto
+  }
+
+  .header .title {
+    margin: 0;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .box {
+    margin: 7px;
+  }
+
+  .rank-list .list-order .list .constant img {
+    max-height: 25px;
+  }
+
+  .rank-list .list-order .list {
+    padding: 15px 0;
+  }
+
+  .point {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
   }
 }

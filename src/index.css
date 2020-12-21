@@ -56,7 +56,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  min-width: 550px;
+  min-width: 375px;
   overflow: hidden auto;
 }
 
