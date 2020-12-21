@@ -10,6 +10,7 @@
 
 # production
 /build
+/panteon-task
 
 # misc
 .DS_Store
